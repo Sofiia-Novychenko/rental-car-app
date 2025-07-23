@@ -22,10 +22,8 @@
 body {
   display: flex;
   flex-direction: column;
-  /* place-items: center; */
   min-height: 100vh;
   font-family: var(--font-family);
-  margin: 0;
 }
 
 @media (prefers-color-scheme: light) {
