@@ -1,0 +1,42 @@
+.header {
+  border-bottom: 1px solid var(--badges);
+  padding: 24px 120px;
+  background: var(--badges);
+  height: 68px;
+}
+
+.headerNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navList {
+  display: flex;
+  gap: 32px;
+}
+
+.link {
+  display: inline-block;
+  transition: transform 200ms ease-in, color 200ms ease;
+  transform-origin: center;
+  position: relative;
+  z-index: 1;
+}
+.link::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  bottom: -12px;
+  left: -12px;
+  right: -12px;
+  z-index: -1;
+}
+
+.link:hover {
+  transform: scale(1.2);
+}
+
+.active {
+  color: var(--button-hover);
+}
