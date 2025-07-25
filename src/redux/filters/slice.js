@@ -13,8 +13,6 @@ const slice = createSlice({
   name: 'filters',
   initialState: {
     brands: [],
-    // selectedCategory: null,
-    // selectedIngredient: null,
     loading: false,
     error: null,
   },
