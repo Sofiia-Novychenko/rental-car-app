@@ -50,14 +50,14 @@ function CatalogPage() {
     rentalPriceParam,
   ]);
   return (
-    <div className="container">
-      <section className="section">
+    <section className="section">
+      <div className="container">
         <FilterBox />
         {loading && <Loader />}
         {!loading && <CarList />}
         <LoadMoreBtn />
-      </section>
-    </div>
+      </div>
+    </section>
   );
 }
 

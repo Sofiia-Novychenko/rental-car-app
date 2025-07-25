@@ -135,7 +135,6 @@ function FilterBox() {
               brandOptions.find(o => o.value === formik.values.brand) || null
             }
             onChange={option => formik.setFieldValue('brand', option.value)}
-            isClearable
             styles={customStyles}
             components={{ DropdownIndicator }}
           />
@@ -156,7 +155,6 @@ function FilterBox() {
             onChange={option =>
               formik.setFieldValue('rentalPrice', option.value)
             }
-            isClearable
             styles={customStyles}
             components={{ DropdownIndicator }}
           />

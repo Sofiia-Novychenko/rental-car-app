@@ -8,22 +8,6 @@ import {
 } from '../../redux/favorites/slice';
 import toast, { Toaster } from 'react-hot-toast';
 
-//   id,
-//     year,
-//     brand,
-//     model,
-//     type,
-//     img,
-//     description,
-//     //   fuelConsumption,
-//     //   engineSize,
-//     //   accessories = [],
-//     //   functionalities = [],
-//     rentalPrice,
-//     rentalCompany,
-//     address,
-//     //   rentalConditions = [],
-//     mileage,
 function CarCard({ car }) {
   const {
     id,
@@ -55,7 +39,7 @@ function CarCard({ car }) {
     .replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} km`;
 
   const handleLearnMore = () => {
-    navigate(`/cars/${id}`);
+    navigate(`/catalog/${id}`);
   };
 
   const handleToggleFavorite = () => {

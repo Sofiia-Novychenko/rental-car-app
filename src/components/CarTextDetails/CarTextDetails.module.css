@@ -1,0 +1,66 @@
+.textInfoWrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 488px;
+}
+.textInfoWrapper p {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+}
+.textInfoWrapper h2 {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 133%;
+  margin-bottom: 8px;
+}
+.textInfoWrapper h3 {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 120%;
+  margin-bottom: 20px;
+}
+.imgId {
+  margin-left: 16px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  color: var(--gray);
+}
+.underTitleInfo {
+  display: flex;
+  gap: 16px;
+
+  margin-bottom: 16px;
+}
+.location {
+  padding-left: 20px;
+  position: relative;
+}
+.locationIcon {
+  position: absolute;
+  left: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.price {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 133%;
+  color: var(--button);
+  margin-bottom: 32px;
+}
+.description {
+  margin-bottom: 68px;
+}
+.textInfoWrapper ul {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 110px;
+}
+.textInfoWrapper li {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
