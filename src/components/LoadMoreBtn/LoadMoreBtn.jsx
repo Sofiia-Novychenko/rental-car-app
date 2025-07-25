@@ -1,7 +1,10 @@
-import React from 'react';
-
+import css from './LoadMoreBtn.module.css';
 function LoadMoreBtn() {
-  return <div>LoadMoreBtn</div>;
+  return (
+    <button type="button" className={css.loadMoreBtn}>
+      Load more
+    </button>
+  );
 }
 
 export default LoadMoreBtn;
