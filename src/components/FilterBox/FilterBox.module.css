@@ -41,17 +41,5 @@ input::-webkit-inner-spin-button {
 }
 
 .searchBtn {
-  border-radius: 12px;
-  padding: 12px 50px;
   width: 156px;
-  background: var(--button);
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 125%;
-  color: var(--white);
-  border: none;
-  transition: 200ms ease-in;
-}
-.searchBtn:hover {
-  background: var(--button-hover);
 }

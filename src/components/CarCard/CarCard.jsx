@@ -101,7 +101,10 @@ function CarCard({ car }) {
           ))}
         </p>
       </div>
-      <button className={css.learnMoreBtn} onClick={handleLearnMore}>
+      <button
+        className={`blueBtn {css.learnMoreBtn}`}
+        onClick={handleLearnMore}
+      >
         Learn more
       </button>
     </div>

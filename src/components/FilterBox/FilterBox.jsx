@@ -181,7 +181,7 @@ function FilterBox() {
             />
           </div>
         </fieldset>
-        <button type="submit" className={css.searchBtn}>
+        <button type="submit" className={`blueBtn ${css.searchBtn}`}>
           Search
         </button>
       </form>

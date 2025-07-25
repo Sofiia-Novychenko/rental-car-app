@@ -13,7 +13,7 @@ function Hero() {
             Reliable and budget-friendly rentals for any journey
           </p>
           <button
-            className={css.btnBlue}
+            className={`blueBtn ${css.heroBtn}`}
             type="button"
             onClick={() => {
               navigate('/catalog');

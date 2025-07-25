@@ -36,12 +36,6 @@
   color: var(--white);
   margin-bottom: 40px;
 }
-.btnBlue {
-  border-radius: 12px;
-  padding: 12px 88px;
+.heroBtn {
   width: 276px;
-  height: 44px;
-  background: var(--button);
-  border: none;
-  color: var(--white);
 }
