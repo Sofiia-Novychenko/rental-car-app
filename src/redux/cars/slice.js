@@ -13,7 +13,6 @@ const slice = createSlice({
   name: 'cars',
   initialState: {
     cars: [],
-    savedCars: [],
     page: 1,
     totalPages: null,
     totalCars: null,
@@ -26,7 +25,10 @@ const slice = createSlice({
       .addCase(fetchCars.fulfilled, (state, { payload }) => {
         state.loading = false;
         state.error = false;
-        state.cars = payload;
+        state.cars = payload.cars;
+        state.page = payload.page;
+        state.totalCars = payload.totalCars;
+        state.totalPages = payload.totalPages;
       })
       .addCase(fetchCars.rejected, handleRejected);
   },
