@@ -19,6 +19,14 @@ const slice = createSlice({
     loading: false,
     error: null,
   },
+  reducers: {
+    resetCars(state) {
+      state.cars = [];
+      state.page = 1;
+      state.totalPages = null;
+      state.totalCars = null;
+    },
+  },
   extraReducers: builder => {
     builder
       .addCase(fetchCars.pending, handlePending)
@@ -37,4 +45,5 @@ const slice = createSlice({
       .addCase(fetchCars.rejected, handleRejected);
   },
 });
+export const { resetCars } = slice.actions;
 export default slice.reducer;

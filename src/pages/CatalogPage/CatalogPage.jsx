@@ -7,9 +7,11 @@ import LoadMoreBtn from '../../components/LoadMoreBtn/LoadMoreBtn';
 import { fetchBrands } from '../../redux/filters/operations';
 import {
   selectIsLoadingCars,
+  selectTotalCars,
   selectTotalPages,
 } from '../../redux/cars/selectors';
 import Loader from '../../components/Loader/Loader';
+import { resetCars } from '../../redux/cars/slice';
 
 function CatalogPage() {
   const dispatch = useDispatch();
@@ -20,6 +22,8 @@ function CatalogPage() {
     selectedMaxMileage,
   } = useSelector(state => state.filters);
   const totalPages = useSelector(selectTotalPages);
+  const totalCars = useSelector(selectTotalCars);
+  const limitPerPage = 12;
   const loading = useSelector(selectIsLoadingCars);
   const [page, setPage] = useState(1);
 
@@ -31,6 +35,17 @@ function CatalogPage() {
     }
   }, [dispatch]);
 
+  // useEffect: при зміні фільтрів
+  useEffect(() => {
+    dispatch(resetCars());
+    setPage(1);
+  }, [
+    dispatch,
+    selectedBrand,
+    selectedRentalPrice,
+    selectedMinMileage,
+    selectedMaxMileage,
+  ]);
   const handleLoadMoreClick = () => {
     setPage(prevValue => prevValue + 1);
   };
@@ -64,10 +79,12 @@ function CatalogPage() {
         <FilterBox />
         {loading && <Loader />}
         {!loading && <CarList />}
-        <LoadMoreBtn
-          onClick={handleLoadMoreClick}
-          disabled={page >= totalPages}
-        />
+        {totalCars >= limitPerPage && (
+          <LoadMoreBtn
+            onClick={handleLoadMoreClick}
+            disabled={page >= totalPages}
+          />
+        )}
       </div>
     </section>
   );

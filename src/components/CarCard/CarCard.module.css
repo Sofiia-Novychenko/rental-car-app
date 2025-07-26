@@ -1,5 +1,9 @@
 .card {
   width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .imgThumb {
   overflow: hidden;
@@ -41,6 +45,9 @@
   justify-content: space-between;
   padding-right: 12px;
   margin-bottom: 8px;
+}
+.titleRow p {
+  white-space: nowrap;
 }
 .title {
   font-weight: 500;
