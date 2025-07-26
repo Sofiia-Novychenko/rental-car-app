@@ -2,8 +2,9 @@ import CarCard from '../CarCard/CarCard';
 import { useSelector } from 'react-redux';
 import { selectCars } from '../../redux/cars/selectors';
 import css from './CarList.module.css';
+import LoadMoreBtn from '../LoadMoreBtn/LoadMoreBtn';
 
-function CarList() {
+function CarList({ onLoadMoreClick, disabled, showButton }) {
   const cars = useSelector(selectCars);
 
   return (
@@ -15,6 +16,9 @@ function CarList() {
           </li>
         ))}
       </ul>
+      {showButton && (
+        <LoadMoreBtn onClick={onLoadMoreClick} disabled={disabled} />
+      )}
     </>
   );
 }

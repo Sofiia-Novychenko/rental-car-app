@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import FilterBox from '../../components/FilterBox/FilterBox';
 import CarList from '../../components/CarList/CarList';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCars } from '../../redux/cars/operations';
-import LoadMoreBtn from '../../components/LoadMoreBtn/LoadMoreBtn';
 import { fetchBrands } from '../../redux/filters/operations';
 import {
   selectIsLoadingCars,
@@ -49,6 +48,7 @@ function CatalogPage() {
   const handleLoadMoreClick = () => {
     setPage(prevValue => prevValue + 1);
   };
+
   useEffect(() => {
     try {
       dispatch(
@@ -78,11 +78,11 @@ function CatalogPage() {
       <div className="container">
         <FilterBox />
         {loading && <Loader />}
-        {!loading && <CarList />}
-        {totalCars >= limitPerPage && (
-          <LoadMoreBtn
-            onClick={handleLoadMoreClick}
+        {!loading && (
+          <CarList
+            onLoadMoreClick={handleLoadMoreClick}
             disabled={page >= totalPages}
+            showButton={totalCars >= limitPerPage}
           />
         )}
       </div>
