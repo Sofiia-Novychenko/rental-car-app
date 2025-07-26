@@ -1,4 +1,5 @@
 .hero {
+  background-color: var(--main);
   background-image: linear-gradient(
       0deg,
       rgba(0, 0, 0, 20%),
@@ -13,7 +14,7 @@
   justify-content: flex-end;
   flex-direction: column;
   padding-bottom: 60px;
-  min-height: 700px;
+  height: 100vh;
 }
 .heroContentContainer {
   display: flex;

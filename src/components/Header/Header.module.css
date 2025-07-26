@@ -3,6 +3,9 @@
   padding: 24px 120px;
   background: var(--badges);
   height: 68px;
+  width: 100%;
+  position: fixed;
+  z-index: 10000;
 }
 
 .headerNav {
