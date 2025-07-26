@@ -133,9 +133,12 @@ function FilterBox() {
             value={
               brandOptions.find(o => o.value === formik.values.brand) || null
             }
-            onChange={option => formik.setFieldValue('brand', option.value)}
+            onChange={option =>
+              formik.setFieldValue('brand', option ? option.value : '')
+            }
             styles={customStyles}
             components={{ DropdownIndicator }}
+            isClearable
           />
         </div>
 
@@ -152,10 +155,11 @@ function FilterBox() {
               null
             }
             onChange={option =>
-              formik.setFieldValue('rentalPrice', option.value)
+              formik.setFieldValue('rentalPrice', option ? option.value : '')
             }
             styles={customStyles}
             components={{ DropdownIndicator }}
+            isClearable
           />
         </div>
 
