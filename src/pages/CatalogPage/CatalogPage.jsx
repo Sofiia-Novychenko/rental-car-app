@@ -11,6 +11,7 @@ import {
 } from '../../redux/cars/selectors';
 import Loader from '../../components/Loader/Loader';
 import { resetCars } from '../../redux/cars/slice';
+import UpBtn from '../../components/UpBtn/UpBtn';
 
 function CatalogPage() {
   const dispatch = useDispatch();
@@ -25,6 +26,10 @@ function CatalogPage() {
   const limitPerPage = 12;
   const loading = useSelector(selectIsLoadingCars);
   const [page, setPage] = useState(1);
+
+  const handleScrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   useEffect(() => {
     try {
@@ -85,6 +90,7 @@ function CatalogPage() {
             showButton={totalCars >= limitPerPage}
           />
         )}
+        <UpBtn onClick={handleScrollToTop} />
       </div>
     </section>
   );

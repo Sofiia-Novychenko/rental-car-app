@@ -1,0 +1,18 @@
+.upBtn {
+  border: 2px solid var(--button);
+  border-radius: 50%;
+  position: fixed;
+  right: 70px;
+  bottom: 70px;
+  background-color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+  fill: var(--button);
+  transition: 200ms ease-in;
+}
+.upBtn:hover {
+  border-color: var(--button-hover);
+  fill: var(--button-hover);
+}
