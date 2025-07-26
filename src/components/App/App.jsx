@@ -3,7 +3,6 @@ import './App.css';
 import Loader from '../Loader/Loader';
 import Layout from '../Layout/Layout.jsx';
 import { Route, Routes } from 'react-router-dom';
-import NotFoundPage from '../../pages/NotFoundPage/NotFoundPage.jsx';
 
 const HomePage = lazy(() => import('../../pages/HomePage/HomePage.jsx'));
 const CatalogPage = lazy(() =>
@@ -11,6 +10,9 @@ const CatalogPage = lazy(() =>
 );
 const DetailsPage = lazy(() =>
   import('../../pages/DetailsPage/DetailsPage.jsx')
+);
+const NotFoundPage = lazy(() =>
+  import('../../pages/NotFoundPage/NotFoundPage.jsx')
 );
 function App() {
   return (
