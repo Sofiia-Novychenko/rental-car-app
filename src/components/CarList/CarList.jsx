@@ -5,8 +5,6 @@ import css from './CarList.module.css';
 
 function CarList() {
   const cars = useSelector(selectCars);
-  console.log('Cars:', cars);
-  console.log('Rendered CarList:', cars.length);
 
   return (
     <>

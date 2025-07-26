@@ -14,3 +14,6 @@
 .loadMoreBtn:hover {
   border-color: var(--button-hover);
 }
+.disabled {
+  display: none;
+}

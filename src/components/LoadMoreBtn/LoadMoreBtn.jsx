@@ -3,7 +3,7 @@ function LoadMoreBtn({ onClick, disabled }) {
   return (
     <button
       type="button"
-      className={css.loadMoreBtn}
+      className={`${css.loadMoreBtn} ${disabled ? css.disabled : ''}`}
       onClick={onClick}
       disabled={disabled}
     >
