@@ -35,6 +35,9 @@ textarea {
   width: 100%;
 }
 
+.inputWrapper {
+  position: relative;
+}
 .formWrapper input::placeholder,
 textarea::placeholder {
   font-family: var(--font-family);
@@ -42,6 +45,14 @@ textarea::placeholder {
   font-size: 16px;
   line-height: 125%;
   color: var(--gray);
+}
+.inputError {
+  position: absolute;
+  top: 42px;
+  color: var(--red);
+  font-size: 13px;
+  margin-left: 12px;
+  line-height: 1.2;
 }
 .formBtn {
   width: 156px;

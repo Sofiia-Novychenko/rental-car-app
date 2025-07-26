@@ -6,6 +6,7 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  --red: #ff3b34;
   --main: #101828;
   --gray: #8d929a;
   --gray-light: #dadde1;
@@ -70,6 +71,10 @@ img {
 input {
   color: inherit;
   font-family: inherit;
+}
+textarea {
+  resize: none;
+  /* field-sizing: content; */
 }
 fieldset {
   padding: 0;
