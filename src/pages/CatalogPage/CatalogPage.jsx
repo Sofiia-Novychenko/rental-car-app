@@ -35,7 +35,7 @@ function CatalogPage() {
     try {
       dispatch(fetchBrands()).unwrap();
     } catch (error) {
-      console.error('Error fetching cars in CatalogPage is:', error.message);
+      console.error('Error fetching brands in CatalogPage:', error.message);
     }
   }, [dispatch]);
 

@@ -113,7 +113,7 @@ function FilterBox() {
       minMileage: selectedMinMileage,
       maxMileage: selectedMaxMileage,
     },
-    enableReinitialize: true, // оновлює форму при зміні Redux
+    enableReinitialize: true, // оновлюєм форму при зміні Redux
     onSubmit: values => {
       dispatch(setFilters(values));
     },

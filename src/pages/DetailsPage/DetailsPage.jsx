@@ -33,10 +33,14 @@ function DetailsPage() {
   return (
     <section className="section">
       <div className="container">
-        <GoBackBtn locationPath={backLinkHref.current} />
         {loading && <Loader />}
-        {/* {error && <ErrorMessage />} */}
-        {car ? <CarDetails car={car} /> : null}
+        {error && <ErrorMessage />}
+        {car ? (
+          <>
+            <GoBackBtn locationPath={backLinkHref.current} />
+            <CarDetails car={car} />
+          </>
+        ) : null}
       </div>
     </section>
   );

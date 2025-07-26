@@ -51,7 +51,7 @@ function CarCard({ car }) {
         dispatch(removeFromFavorites(carId));
       }
     } catch (error) {
-      console.error('error adding to favorite:', error);
+      console.error('Error adding to favorite:', error);
       toast.error('Error adding to favorites!');
     }
   };

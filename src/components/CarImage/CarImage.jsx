@@ -1,4 +1,3 @@
-import React from 'react';
 import css from './CarImage.module.css';
 
 function CarImage({ img, description }) {
