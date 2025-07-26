@@ -6,7 +6,7 @@ import {
   addToFavorite,
   removeFromFavorites,
 } from '../../redux/favorites/slice';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 
 function CarCard({ car }) {
   const {
@@ -57,7 +57,6 @@ function CarCard({ car }) {
   };
   return (
     <div className={css.card}>
-      <Toaster position="top-right" reverseOrder={false} />
       <div className={css.imgThumb}>
         <img src={img} alt={description} className={css.image} />
         <button

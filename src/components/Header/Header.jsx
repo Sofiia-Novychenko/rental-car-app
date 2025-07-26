@@ -1,4 +1,3 @@
-import React from 'react';
 import css from './Header.module.css';
 import { NavLink } from 'react-router-dom';
 import clsx from 'clsx';

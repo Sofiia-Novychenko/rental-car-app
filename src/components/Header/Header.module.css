@@ -5,7 +5,7 @@
   height: 68px;
   width: 100%;
   position: fixed;
-  z-index: 10000;
+  z-index: 100;
 }
 
 .headerNav {

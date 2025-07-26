@@ -5,7 +5,7 @@ import { useFormik } from 'formik';
 import css from './RentForm.module.css';
 import { useState } from 'react';
 import 'react-datepicker/dist/react-datepicker.css';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 
 function RentForm() {
   const [selectedDate, setSelectedDate] = useState(null);
@@ -46,7 +46,6 @@ function RentForm() {
   });
   return (
     <div className={css.formWrapper}>
-      <Toaster position="top-right" reverseOrder={false} />
       <h3>Book your car now</h3>
       <p>Stay connected! We are always ready to help you.</p>
       <form className={css.form} onSubmit={formik.handleSubmit}>
