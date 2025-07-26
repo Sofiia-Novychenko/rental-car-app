@@ -1,4 +1,3 @@
-import React from 'react';
 import CarCard from '../CarCard/CarCard';
 import { useSelector } from 'react-redux';
 import { selectCars } from '../../redux/cars/selectors';
@@ -6,6 +5,9 @@ import css from './CarList.module.css';
 
 function CarList() {
   const cars = useSelector(selectCars);
+  console.log('Cars:', cars);
+  console.log('Rendered CarList:', cars.length);
+
   return (
     <>
       <ul className={css.list}>

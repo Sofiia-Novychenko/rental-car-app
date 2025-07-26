@@ -1,7 +1,12 @@
 import css from './LoadMoreBtn.module.css';
-function LoadMoreBtn() {
+function LoadMoreBtn({ onClick, disabled }) {
   return (
-    <button type="button" className={css.loadMoreBtn}>
+    <button
+      type="button"
+      className={css.loadMoreBtn}
+      onClick={onClick}
+      disabled={disabled}
+    >
       Load more
     </button>
   );

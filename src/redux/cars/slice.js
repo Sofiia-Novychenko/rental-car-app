@@ -25,7 +25,11 @@ const slice = createSlice({
       .addCase(fetchCars.fulfilled, (state, { payload }) => {
         state.loading = false;
         state.error = false;
-        state.cars = payload.cars;
+        if (payload.page === 1) {
+          state.cars = payload.cars;
+        } else {
+          state.cars = [...state.cars, ...payload.cars];
+        }
         state.page = payload.page;
         state.totalCars = payload.totalCars;
         state.totalPages = payload.totalPages;
@@ -33,5 +37,4 @@ const slice = createSlice({
       .addCase(fetchCars.rejected, handleRejected);
   },
 });
-
 export default slice.reducer;

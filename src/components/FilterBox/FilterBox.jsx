@@ -1,11 +1,11 @@
 import { useFormik } from 'formik';
 import Select, { components } from 'react-select';
 import css from './FilterBox.module.css';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectFilterBrands } from '../../redux/filters/selectors';
-import { useSearchParams } from 'react-router-dom';
-import clsx from 'clsx';
 
+import clsx from 'clsx';
+import { setFilters } from '../../redux/filters/slice';
 const customStyles = {
   control: provided => ({
     ...provided,
@@ -87,9 +87,9 @@ const DropdownIndicator = props => {
 };
 
 function FilterBox() {
-  const [_, setSearchParams] = useSearchParams();
   const brands = useSelector(selectFilterBrands);
   const brandOptions = brands.map(brand => ({ value: brand, label: brand }));
+
   const priceOptions = [];
   for (let i = 30; i < 151; i += 10) {
     priceOptions.push({
@@ -97,26 +97,25 @@ function FilterBox() {
       label: i,
     });
   }
+  const {
+    selectedBrand,
+    selectedRentalPrice,
+    selectedMinMileage,
+    selectedMaxMileage,
+  } = useSelector(state => state.filters);
+
+  const dispatch = useDispatch();
 
   const formik = useFormik({
     initialValues: {
-      brand: '',
-      rentalPrice: '',
-      minMileage: '',
-      maxMileage: '',
+      brand: selectedBrand,
+      rentalPrice: selectedRentalPrice,
+      minMileage: selectedMinMileage,
+      maxMileage: selectedMaxMileage,
     },
+    enableReinitialize: true, // оновлює форму при зміні Redux
     onSubmit: values => {
-      const params = new URLSearchParams();
-
-      if (values.brand) params.set('brand', values.brand);
-      if (values.rentalPrice) params.set('rentalPrice', values.rentalPrice);
-      if (values.minMileage) params.set('minMileage', values.minMileage);
-      if (values.maxMileage) params.set('maxMileage', values.maxMileage);
-
-      // Скидаємо сторінку на першу при новому фільтрі
-      params.set('page', '1');
-
-      setSearchParams(params);
+      dispatch(setFilters(values));
     },
   });
 
@@ -125,7 +124,7 @@ function FilterBox() {
       <form onSubmit={formik.handleSubmit} className={css.filterBox}>
         <div>
           <label htmlFor="brand" className={css.label}>
-            Car brand@
+            Car brand
           </label>
           <Select
             name="brand"

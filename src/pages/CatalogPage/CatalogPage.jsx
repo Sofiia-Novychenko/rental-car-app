@@ -1,26 +1,27 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import FilterBox from '../../components/FilterBox/FilterBox';
 import CarList from '../../components/CarList/CarList';
-import { useSearchParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCars } from '../../redux/cars/operations';
-// import { selectPage } from '../../redux/cars/selectors';
 import LoadMoreBtn from '../../components/LoadMoreBtn/LoadMoreBtn';
 import { fetchBrands } from '../../redux/filters/operations';
-import { selectIsLoadingCars } from '../../redux/cars/selectors';
+import {
+  selectIsLoadingCars,
+  selectTotalPages,
+} from '../../redux/cars/selectors';
 import Loader from '../../components/Loader/Loader';
 
 function CatalogPage() {
-  const [searchParams, setSearchParams] = useSearchParams();
   const dispatch = useDispatch();
-
-  // const page = useSelector(selectPage);
+  const {
+    selectedBrand,
+    selectedRentalPrice,
+    selectedMinMileage,
+    selectedMaxMileage,
+  } = useSelector(state => state.filters);
+  const totalPages = useSelector(selectTotalPages);
   const loading = useSelector(selectIsLoadingCars);
-
-  const brandParam = searchParams.get('brand') || '';
-  const rentalPriceParam = searchParams.get('rentalPrice') || '';
-  const minMileageParam = searchParams.get('minMileage') || '';
-  const maxMileageParam = searchParams.get('maxMileage') || '';
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     try {
@@ -29,33 +30,44 @@ function CatalogPage() {
       console.error('Error fetching cars in CatalogPage is:', error.message);
     }
   }, [dispatch]);
+
+  const handleLoadMoreClick = () => {
+    setPage(prevValue => prevValue + 1);
+  };
   useEffect(() => {
     try {
       dispatch(
         fetchCars({
-          brand: brandParam,
-          rentalPrice: rentalPriceParam,
-          minMileage: minMileageParam,
-          maxMileage: maxMileageParam,
+          brand: selectedBrand,
+          rentalPrice: selectedRentalPrice,
+          minMileage: selectedMinMileage,
+          maxMileage: selectedMaxMileage,
+          page,
+          limit: 12,
         })
       ).unwrap();
     } catch (error) {
       console.error('Error fetchning cars in CatalogPage is:', error.message);
     }
   }, [
-    brandParam,
     dispatch,
-    maxMileageParam,
-    minMileageParam,
-    rentalPriceParam,
+    page,
+    selectedBrand,
+    selectedMaxMileage,
+    selectedMinMileage,
+    selectedRentalPrice,
   ]);
+
   return (
     <section className="section">
       <div className="container">
         <FilterBox />
         {loading && <Loader />}
         {!loading && <CarList />}
-        <LoadMoreBtn />
+        <LoadMoreBtn
+          onClick={handleLoadMoreClick}
+          disabled={page >= totalPages}
+        />
       </div>
     </section>
   );

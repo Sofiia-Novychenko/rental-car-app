@@ -13,8 +13,20 @@ const slice = createSlice({
   name: 'filters',
   initialState: {
     brands: [],
+    selectedBrand: '',
+    selectedRentalPrice: '',
+    selectedMinMileage: '',
+    selectedMaxMileage: '',
     loading: false,
     error: null,
+  },
+  reducers: {
+    setFilters(state, { payload }) {
+      state.selectedBrand = payload.brand;
+      state.selectedRentalPrice = payload.rentalPrice;
+      state.selectedMinMileage = payload.minMileage;
+      state.selectedMaxMileage = payload.maxMileage;
+    },
   },
   extraReducers: builder => {
     builder
@@ -27,4 +39,5 @@ const slice = createSlice({
       .addCase(fetchBrands.rejected, handleRejected);
   },
 });
+export const { setFilters } = slice.actions;
 export default slice.reducer;
